@@ -22,3 +22,8 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+src/main/java/butte/emily/passionprojectserver/repository/
+src/main/java/butte/emily/passionprojectserver/utils/
+src/main/java/butte/emily/passionprojectserver/web/
+src/main/resources/static/
+src/main/resources/templates/
