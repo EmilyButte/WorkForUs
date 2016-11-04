@@ -7,23 +7,18 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "user")
+//@Table(name = "user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, updatable = false)
     private Long id;
-
-    @Column(name = "email", nullable = false, unique = true)
     private String email;
+    private String password;
 
-    @Column(name = "password_hash", nullable = false)
-    private String passwordHash;
-
-    public User(String username, String password){
-        this.email = username;
-        this.passwordHash = password;
+    public User(String email, String password){
+        this.email = email;
+        this.password = password;
     }
 
     public User() {}
@@ -44,12 +39,12 @@ public class User {
         this.email = email;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String toString(){
@@ -58,8 +53,8 @@ public class User {
         value.append(id);
         value.append(",email: ");
         value.append(email);
-        value.append(",passwordHash: ");
-        value.append(passwordHash);
+        value.append(",password: ");
+        value.append(password);
         value.append(")");
         return value.toString();
     }

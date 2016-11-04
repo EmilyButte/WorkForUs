@@ -1,28 +1,46 @@
-package butte.emily.passionprojectserver.controller;
+//package butte.emily.passionprojectserver.controller;
+//
+//import butte.emily.passionprojectserver.UserAlreadyExistsException;
+//import butte.emily.passionprojectserver.domain.User;
+//import butte.emily.passionprojectserver.repository.UserRepository;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.http.MediaType;
+//import org.springframework.web.bind.annotation.*;
+//
+///**
+// * Created by emilybutte on 11/2/16.
+// */
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.util.Optional;
-
-/**
- * Created by emilybutte on 11/2/16.
- */
-
-@Controller
-public class LoginController {
-
-    private static final Logger log = LoggerFactory.getLogger(LoginController.class);
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView getLoginPage(@RequestParam Optional<String> error) {
-        log.debug("Getting login page, error={}", error);
-        return new ModelAndView("login", "error", error);
-    }
-}
+//@RestController
+//@CrossOrigin
+//public class LoginController {
+//
+//    @Autowired
+//    UserRepository userRepo;
+//
+//    @RequestMapping(value = "/", method = RequestMethod.GET)
+//    public String sayHello() {
+//        return "Hello World";
+//    }
+//
+//    @RequestMapping(value = "/findByEmail/{email}", method = RequestMethod.GET)
+//    public User findByEmail(@PathVariable String email){
+//        User user = userRepo.findByEmail(email);
+//        System.out.println(user);
+//        return user;
+//    }
+//
+//    @RequestMapping(value = "/create" , method=RequestMethod.POST , consumes= MediaType.APPLICATION_JSON_VALUE)
+//    public String createUser(@RequestBody User request) {
+//        try {
+//            if(userRepo.findByEmail(request.getEmail()) != null) {
+//                throw new UserAlreadyExistsException();
+//            }
+//            userRepo.saveAndFlush(new User(request.getEmail(), request.getPassword()));
+//        } catch (UserAlreadyExistsException e) {
+//
+//            return "{\"message\":\"User already exists!\"}";
+//        }
+//        return "{\"message\":\"Success!\"}";
+//    }
+//}
