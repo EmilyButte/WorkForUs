@@ -7,17 +7,18 @@ import javax.persistence.*;
  */
 
 @Entity
-//@Table(name = "user")
+@Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String email;
+    @Column(unique = true)
+    private String username;
     private String password;
 
     public User(String email, String password){
-        this.email = email;
+        this.username = email;
         this.password = password;
     }
 
@@ -31,12 +32,12 @@ public class User {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -51,8 +52,8 @@ public class User {
         StringBuilder value = new StringBuilder("User (");
         value.append("Id: ");
         value.append(id);
-        value.append(",email: ");
-        value.append(email);
+        value.append(",username: ");
+        value.append(username);
         value.append(",password: ");
         value.append(password);
         value.append(")");
